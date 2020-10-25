@@ -5,6 +5,7 @@ let glyphStates = {
   "♥": "♡"
 };
 
+//This chooses the color
 let colorStates = {
   "red" : "",
   "": "red"
@@ -12,22 +13,21 @@ let colorStates = {
 
 // STEP 1: This code is what lets JavaScript find the elements that we want to make clickable.
 // Without JavaScript, clicking on these heart shapes does nothing. Uncomment
-// this code and refresh the demo page.
-
-// let articleHearts = document.querySelectorAll(".like-glyph");
+let articleHearts = document.querySelectorAll(".like-glyph");
 
 function likeCallback(e) {
   let heart = e.target;
   mimicServerCall()
     .then(function(serverMessage){
-      // STEP 2: Uncomment the next 3 lines.
+      
+      //Cause a Change to Given Code So That Server-Side Behavior Is Stubbed in
       // We'll use Pillar 1 (DOM Manipulation) to update the screen and
       // mimic Pillar 3 (Server Communication) to only update the screen if the
       // sending of information to the server succeeds.
       alert("You notified the server!");
-      // alert(serverMessage);
-      // heart.innerText = glyphStates[heart.innerText];
-      // heart.style.color = colorStates[heart.style.color];
+      alert(serverMessage);
+      heart.innerText = glyphStates[heart.innerText];
+      heart.style.color = colorStates[heart.style.color];
     })
     .catch(function(error) {
       alert("Something went wrong!");
@@ -39,9 +39,9 @@ function likeCallback(e) {
 // code when an "event" is fired. That's Pillar 2, event handling. Uncomment
 // this code.
 
-//for (let glyph of articleHearts) {
-  //glyph.addEventListener("click", likeCallback);
-//}
+for (let glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
 
 // STEP 4: 
 
